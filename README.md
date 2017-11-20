@@ -1,24 +1,14 @@
 # Lab 08: Javascript JSON API example
 
-Navigate to a local directory where you want to store this exercise, and clone the repository from GitHub. Before you push, you will need to *change the GIT remote* to a new repository of your own with the following command: `git remote set-url origin [YOUR_REPO_URL_HERE]`.
+The branch shows how to use the public Wikipedia API.
 
-- Set up GitHub Pages.
-- Try the Codecademy [mini course](https://www.codecademy.com/courses/javascript-beginner-en-EID4t/0/1?curriculum_id=50ecba3b57ff25277d00010a) on using APIs with JavaScript.
-- Explore the Wikipedia [API sandbox](https://en.wikipedia.org/wiki/Special:ApiSandbox#action=query&titles=Main%20Page&prop=revisions&rvprop=content&format=jsonfm).
-
-
+1. Clone the repo and push to your own GitHub account
+1. Set up GitHub Pages
+1. Play with the existing code and try and change some of the query parameters.
 
 
+For a more general introduction to APIs try the Codecademy [mini course](https://www.codecademy.com/courses/javascript-beginner-en-EID4t/0/1?curriculum_id=50ecba3b57ff25277d00010a) on using APIs with JavaScript.
 
-<!-- 
-The first part of this example uses a local web server (check that this is available) to allow your browser to read in a local JSON file, and display the results. If you can't run a local server, use the alternative JSON API source provided in the code.
+Explore the Wikipedia [API sandbox](https://en.wikipedia.org/wiki/Special:ApiSandbox#action=query&titles=Main%20Page&prop=revisions&rvprop=content&format=jsonfm).
 
-## Start a local web server (if available)
-
-If you can run a [simple local server](https://github.com/mrdoob/three.js/wiki/How-to-run-things-locally) on your machine, open a command-line console, `cd` into the directory where your index.html file is, then (if you don't already have a server setup) run one of the following commands (depending on installed languages):
-
-- Python 2.7: `python -m SimpleHTTPServer`
-- Python 3: `python -m http.server`
-- PHP (>=5.4): `php -S localhost:8000` 
-
-Wait until the console shows `Serving HTTP on 0.0.0.0 port 8000`, then go to `http://localhost:8000/` in your browser. You can stop the server with `ctrl-C` if you need to later, but your browser won't read the local JSON if you simply show index.html as a file. However, this local JSON is for experimentation so you can change the JSON data yourself and get used to navigating through JSON, although the main exercise will run without a local server and use remote JSON. -->
+Check the [help pages](https://en.wikipedia.org/w/api.php?action=help) for the Wikipedia API.
