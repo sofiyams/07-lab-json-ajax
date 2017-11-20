@@ -2,6 +2,13 @@
 
 Navigate to a local directory where you want to store this exercise, and clone the repository from GitHub. Before you push, you will need to *change the GIT remote* to a new repository of your own with the following command: `git remote set-url origin [YOUR_REPO_URL_HERE]`.
 
+You may want to try the Codecademy [mini course](https://www.codecademy.com/courses/javascript-beginner-en-EID4t/0/1?curriculum_id=50ecba3b57ff25277d00010a) on using APIs with JavaScript.
+
+Wikipedia [API sandbox](https://en.wikipedia.org/wiki/Special:ApiSandbox#action=query&titles=Main%20Page&prop=revisions&rvprop=content&format=jsonfm)
+
+
+
+
 <!-- 
 The first part of this example uses a local web server (check that this is available) to allow your browser to read in a local JSON file, and display the results. If you can't run a local server, use the alternative JSON API source provided in the code.
 
