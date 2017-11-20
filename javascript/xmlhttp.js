@@ -13,7 +13,8 @@
                 generator=search& \
                 gsrnamespace=0& \
                 gsrlimit=10& \
-                prop=extracts|langlinks|pageimages& \
+                prop=info|extracts|langlinks|pageimages& \
+                inprop=url& \
                 exintro& \
                 explaintext& \
                 exsentences=1& \
@@ -23,6 +24,8 @@
                 piprop=thumbnail|name& \
                 origin=*& \
                 gsrsearch=";
+
+// https://en.wikipedia.org/wiki/Special:ApiSandbox#action=query&format=json&generator=search&prop=extracts%7Clanglinks%7Cpageimages&gsrlimit=10&gsrnamespace=0&exintro&explaintext&exsentences=1&exlimit=max&llprop=url&lllimit=max&piprop=thumbnail|name&origin=*&gsrsearch=kittens
 
   searchForm.addEventListener("submit", function(ev){
       let wiki = baseURL + queryBox.value;
@@ -46,10 +49,10 @@
 
   // WIKIPEDIA
   function gatherData(data) {
-    // console.log(data);
+    console.log(data);
     let theData = "";
     let langLinks = "";
-    let img = "";
+    let img = "<img>";
     const languages = ["en", "de", "zh", "fr", "es", "ja", "ar", "ko", "el"];
     let k;
     let key;
@@ -59,7 +62,7 @@
       if (tmp.thumbnail) {
         img = `<img src="${tmp.thumbnail.source}" alt="${tmp.title}"> `;
       }
-      let title = `<strong> ${tmp.title}:</strong>`;
+      let title = `<strong><a href="${tmp.fullurl}">${tmp.title}</a></strong>`;
       let extract = `<span class="txt">${tmp.extract}</span>`;
       let langLinks = "";
       for (k in tmp.langlinks) {
