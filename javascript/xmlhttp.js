@@ -31,6 +31,7 @@
         let response = JSON.parse(xhr.responseText);
         gatherData(response);
       }
+	  queryBox.value = "";
       ev.preventDefault();
     }, false);
 
