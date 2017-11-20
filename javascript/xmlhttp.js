@@ -24,8 +24,8 @@
   searchForm.addEventListener("submit", function(ev){
       let wiki = baseURL + queryBox.value;
       xhr.open("GET", wiki, true);
-      // xhr.setRequestHeader( 'Api-User-Agent', 'Example/1.0' );
-      xhr.setRequestHeader( 'X-Referer', 'https://ctec3905.github.io/08-lab-json-ajax/' );
+      xhr.setRequestHeader( 'Api-User-Agent', 'Example/1.0' );
+      // xhr.setRequestHeader( 'X-Referer', 'https://ctec3905.github.io/08-lab-json-ajax/' );
       xhr.send();
       if (xhr.readyState === 4 && xhr.status === 200) {
         let response = JSON.parse(xhr.responseText);
