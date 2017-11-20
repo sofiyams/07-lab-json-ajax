@@ -13,13 +13,14 @@
                 generator=search& \
                 gsrnamespace=0& \
                 gsrlimit=10& \
-                prop=info%7Cextracts%7Clanglinks& \
+                prop=extracts|langlinks|pageimages& \
                 exintro& \
                 explaintext& \
                 exsentences=1& \
                 exlimit=max& \
                 llprop=url& \
                 lllimit=max& \
+                piprop=thumbnail|name& \
                 origin=*& \
                 gsrsearch=";
 
@@ -27,7 +28,6 @@
       let wiki = baseURL + queryBox.value;
       xhr.open("GET", wiki, true);
       xhr.setRequestHeader('Api-User-Agent', 'Example/1.0');
-      // xhr.setRequestHeader( 'X-Referer', 'https://ctec3905.github.io/08-lab-json-ajax/' );
       xhr.send();
       if (xhr.readyState === 4 && xhr.status === 200) {
         let response = JSON.parse(xhr.responseText);
@@ -46,23 +46,29 @@
 
   // WIKIPEDIA
   function gatherData(data) {
+    // console.log(data);
     let theData = "";
     let langLinks = "";
-    let languages = ["en", "de", "zh", "fr", "es", "ja", "ar", "ko", "el"];
+    let img = "";
+    const languages = ["en", "de", "zh", "fr", "es", "ja", "ar", "ko", "el"];
     let k;
     let key;
+    // loop through the result pages by pageid
     for(key in data.query.pages) {
-      let title = `<strong>${data.query.pages[key].title}:</strong>`;
-      let extract = `${data.query.pages[key].extract} `;
+      let tmp = data.query.pages[key];
+      if (tmp.thumbnail) {
+        img = `<img src="${tmp.thumbnail.source}" alt="${tmp.title}"> `;
+      }
+      let title = `<strong> ${tmp.title}:</strong>`;
+      let extract = `<span class="txt">${tmp.extract}</span>`;
       let langLinks = "";
-      for (k in data.query.pages[key].langlinks) {
-        if (languages.includes(data.query.pages[key].langlinks[k].lang)) {
-          langLinks += `<a href=${data.query.pages[key].langlinks[k].url}>${data.query.pages[key].langlinks[k].lang}</a> `;
+      for (k in tmp.langlinks) {
+        if (languages.includes(tmp.langlinks[k].lang)) {
+          langLinks += `<a href=${tmp.langlinks[k].url}>${tmp.langlinks[k].lang}</a> `;
         }
       }
-      theData += `<li> ${title} ${extract} ${langLinks} </li>`;
+      theData += `<li>${img} ${title} ${extract} <span class="langs">${langLinks}</span></li>`;
     }
-    
     demoJSON.innerHTML = theData;
   }
 
