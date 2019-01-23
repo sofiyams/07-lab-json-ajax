@@ -3,15 +3,15 @@
 (function(){
   // creates a new object called xhr
   // which will handle the API call
-  let xhr = new XMLHttpRequest();
+  const xhr = new XMLHttpRequest();
   // console.log(`Current readyState: ${xhr.readyState}`);
 
-  let queryBox = document.getElementById("wikiQuery");
-  let searchForm = document.getElementById("searchForm");
-  let demoJSON = document.getElementById("demo");
+  const queryBox = document.getElementById("wikiQuery");
+  const searchForm = document.getElementById("searchForm");
+  const demoJSON = document.getElementById("demo");
 
   // constructs the base for the request url
-  let baseURL = "https://en.wikipedia.org/w/api.php? \
+  const baseURL = "https://en.wikipedia.org/w/api.php? \
                 format=json& \
                 action=query& \
                 generator=search& \
@@ -54,7 +54,7 @@ https://en.wikipedia.org/w/api.php?action=query&format=json&generator=search&pro
       }
       let title = `<strong><a href="${tmp.fullurl}">${tmp.title}</a></strong>`;
       let extract = `<span class="txt">${tmp.extract}</span>`;
-      let langLinks = "";
+      langLinks = "";
       for (k in tmp.langlinks) {
         if (languages.includes(tmp.langlinks[k].lang)) {
           langLinks += `<a href=${tmp.langlinks[k].url}>${tmp.langlinks[k].lang}</a> `;
