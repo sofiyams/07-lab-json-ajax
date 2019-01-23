@@ -1,4 +1,4 @@
-# Lab 07: Javascript JSON API example
+# Javascript JSON API example
 
 The master branch shows how to use the public Wikipedia API.
 
